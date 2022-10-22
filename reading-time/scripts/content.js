@@ -6,11 +6,12 @@ if (article) {
   const words = text.matchAll(wordMatchRegExp);
   const wordCount = Array.from(words).length;
   const readingTime = Math.ceil(wordCount / 200);
+
   const badge = document.createElement('p');
   badge.classList.add("color-secondary-text", "type--caption");
   badge.textContent = `⏱️ ${readingTime} min read`;
 
-  const heading = article.querySelector("h1");
+  const heading = article.querySelector("header");
   const date = article.querySelector("time")?.parentNode;
 
   (date ?? heading).insertAdjacentElement("afterend", badge);
